@@ -1,65 +1,37 @@
 import 'package:flutter/material.dart';
+import 'components/bottom_navi_bar.dart';
 
 void main() {
-  runApp(const Notice());
+  runApp(const NoticeApp());
 }
 
-class Notice extends StatelessWidget {
-  const Notice({super.key});
+class NoticeApp extends StatelessWidget {
+  const NoticeApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    return const MaterialApp(
+      home: Notice(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+class Notice extends StatefulWidget {
+  const Notice({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<Notice> createState() => _NoticeState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
+class _NoticeState extends State<Notice> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: .center,
-          children: [
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
+        child: Text('메인화면'),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      bottomNavigationBar: BottomNaviBar(),
     );
   }
 }
