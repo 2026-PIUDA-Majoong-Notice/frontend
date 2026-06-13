@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'components/bottom_navi_bar.dart';
+import 'pages/onboarding_page/onboarding_page.dart';
 
 void main() {
   runApp(const NoticeApp());
@@ -10,8 +12,11 @@ class NoticeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Notice(),
+    return MaterialApp(
+      theme: ThemeData(
+        scaffoldBackgroundColor: const Color(0xffF6FAF8),
+      ),
+      home: const OnboardingPage(),
       debugShowCheckedModeBanner: false,
     );
   }
