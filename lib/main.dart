@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'components/bottom_navi_bar.dart';
 import 'pages/onboarding_page/onboarding_page.dart';
+import 'pages/add_page/add_page_basic/add_page_basic.dart';
+
 
 void main() {
   runApp(const NoticeApp());
@@ -16,7 +18,7 @@ class NoticeApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0xffF6FAF8),
       ),
-      home: const OnboardingPage(),
+      home: const AddPageBasic(),
       debugShowCheckedModeBanner: false,
     );
   }
