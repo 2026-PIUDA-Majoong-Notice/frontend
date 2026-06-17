@@ -18,7 +18,7 @@ class NoticeApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0xffF6FAF8),
       ),
-      home: const AddPageBasic(),
+      home: AddPageBasic(profileImage: null, onProfileImageTap: () {  },),
       debugShowCheckedModeBanner: false,
     );
   }
