@@ -12,7 +12,7 @@ class ProfileCard extends StatefulWidget {
 
 class _ProfileCardState extends State<ProfileCard> {
   late ProfileCardViewModel viewModel;
-  final probablityComments = ["용변 확률 낮음", "용변 확률 보통", "용변 확률 높음"];
+  final probabilityComments = ["용변 확률 낮음", "용변 확률 보통", "용변 확률 높음"];
 
   @override
   void initState() {
@@ -54,7 +54,7 @@ class _ProfileCardState extends State<ProfileCard> {
                 children: [
                   Positioned( // 현재 시간대 용변확률
                     top: 10,
-                    left: 210,
+                    left: 227,
                     child: Row(
                       children: [
                         Text(
@@ -113,19 +113,19 @@ class _ProfileCardState extends State<ProfileCard> {
                               style: TextStyle(
                                 fontSize: 20,
                                 fontFamily: 'SCDream',
-                                fontWeight: FontWeight.w200,
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
                             SizedBox(width: 3),
 
                             Column(
                               children: [
-                                SizedBox(height: 5),
+                                SizedBox(height: 9),
                                 Text(
                                   '어르신',
                                   style: TextStyle(
                                     fontFamily: 'SCDream',
-                                    fontWeight: FontWeight.w100,
+                                    fontWeight: FontWeight.w400,
                                     fontSize: 12,
                                   ),
                                 ),
@@ -135,40 +135,43 @@ class _ProfileCardState extends State<ProfileCard> {
                         ),
                         SizedBox(height: 13),
 
-                        Wrap(
-                          spacing: 8,
-                          children: [
-                            ...viewModel.data.tags.map(
-                                  (element) => Container(
-                                alignment: Alignment.center,
-                                height: 25,
-                                width: 70,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Color(0xFFF6FAF8),
-                                ),
-                                child: Text(
-                                  element,
-                                  style: TextStyle(
-                                    fontFamily: 'SCDream',
-                                    fontWeight: FontWeight.w100,
-                                    fontSize: 11,
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10),
+                          child: Wrap(
+                            spacing: 8,
+                            children: [
+                              ...viewModel.data.tags.map(
+                                    (element) => Container(
+                                  alignment: Alignment.center,
+                                  height: 25,
+                                  width: 70,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Color(0xFFF6FAF8),
+                                  ),
+                                  child: Text(
+                                    element,
+                                    style: TextStyle(
+                                      fontFamily: 'SCDream',
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 11,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                         SizedBox(height: 12),
 
                         Padding(
-                          padding: const EdgeInsets.only(left: 85),
+                          padding: const EdgeInsets.only(left: 93),
                           child: Text(
                             '마지막 용변 후 ${viewModel.lastToiletTime()}시간 경과',
                             style: TextStyle(
                               fontFamily: 'SCDream',
                               fontSize: 13,
-                              fontWeight: FontWeight.w100,
+                              fontWeight: FontWeight.w400,
                               color: Color(0xFF26332F).withOpacity(0.5),
                             ),
                           ),
@@ -178,11 +181,11 @@ class _ProfileCardState extends State<ProfileCard> {
                   ),
                   Positioned(
                     // 현재 시간 용변 확률 낮음/보통/높음
-                    left: 240,
+                    left: 250,
                     top: 53,
                     child: Text(
-                      probablityComments[viewModel.probablityLevel()],
-                      style: TextStyle(fontSize: 15, fontFamily: 'SCDream'),
+                      probabilityComments[viewModel.probablityLevel()],
+                      style: TextStyle(fontSize: 15, fontFamily: 'SCDream', fontWeight: FontWeight.w700),
                     ),
                   ),
                 ],
