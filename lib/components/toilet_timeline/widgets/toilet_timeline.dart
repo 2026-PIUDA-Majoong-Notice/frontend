@@ -1,4 +1,4 @@
-// widgets/toilet_timeline.dart
+//widgets/toilet_timeline.dart
 import 'package:flutter/material.dart';
 import 'package:majoong_notice/components/toilet_timeline/view_model/timeline_view_model.dart';
 import 'package:majoong_notice/components/toilet_timeline/widgets/timeline_painter.dart';
@@ -23,14 +23,82 @@ class _ToiletTimelineState extends State<ToiletTimeline> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 300,
-      height: 300,
-      child: Transform.scale(
-        scale: 0.8,
-        child: CustomPaint(
-          painter: TimelinePainter(viewModel: viewModel),
-        ),
+    return FittedBox(
+      fit: BoxFit.contain,
+      child: Stack(
+        children: [
+          Container(
+            width: 362,
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Color(0xFF26332F).withOpacity(0.3),
+                width: 0.5,
+              ),
+              borderRadius: BorderRadius.circular(20),
+              color: Color(0xFFF6FAF8),
+            ),
+
+            child: Column(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color(0xFFDDEEE7),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
+                    ),
+                  ),
+                  height: 50,
+                  width: double.infinity,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 15, left: 17),
+                    child: Text(
+                      "용변 타임라인",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w300,
+                        fontFamily: 'SCDream',
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 300,
+                  height: 330,
+                  child: Transform.scale(
+                    scale: 0.7,
+                    child: CustomPaint(
+                      painter: TimelinePainter(viewModel: viewModel),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            left: 30,
+            top: 325,
+            child: Image(
+              image: AssetImage("./assets/images/moon.png"),
+              width: 30,
+              height: 30,
+            ),
+          ),
+          Positioned(
+            top: 198,
+            left: 163,
+            child: Image(image: AssetImage("./assets/images/emoji_low.png"), width: 37, height: 37), //나중에 유저모델 확정 되면 차차 로직 넣어야 할 것 같습니다.
+          ),
+          Positioned(
+            left: 305,
+            top: 70,
+            child: Image(
+              image: AssetImage("./assets/images/sun.png"),
+              width: 35,
+              height: 35,
+            ),
+          ),
+        ],
       ),
     );
   }

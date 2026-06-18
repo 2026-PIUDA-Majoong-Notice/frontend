@@ -136,7 +136,7 @@ class _ProfileCardState extends State<ProfileCard> {
                         SizedBox(height: 13),
 
                         Padding(
-                          padding: const EdgeInsets.only(left: 10),
+                          padding: const EdgeInsets.only(left: 15),
                           child: Wrap(
                             spacing: 8,
                             children: [
@@ -165,7 +165,7 @@ class _ProfileCardState extends State<ProfileCard> {
                         SizedBox(height: 12),
 
                         Padding(
-                          padding: const EdgeInsets.only(left: 93),
+                          padding: const EdgeInsets.only(left: 100),
                           child: Text(
                             '마지막 용변 후 ${viewModel.lastToiletTime()}시간 경과',
                             style: TextStyle(
@@ -181,11 +181,11 @@ class _ProfileCardState extends State<ProfileCard> {
                   ),
                   Positioned(
                     // 현재 시간 용변 확률 낮음/보통/높음
-                    left: 250,
-                    top: 53,
+                    left: 246,
+                    top: 50,
                     child: Text(
                       probabilityComments[viewModel.probablityLevel()],
-                      style: TextStyle(fontSize: 15, fontFamily: 'SCDream', fontWeight: FontWeight.w700),
+                      style: TextStyle(fontSize: 17, fontFamily: 'SCDream', fontWeight: FontWeight.w700),
                     ),
                   ),
                 ],

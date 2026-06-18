@@ -66,6 +66,8 @@ flutter:
     - assets/images/emoji_high.png
     - assets/images/emoji_mid.png
     - assets/images/emoji_low.png
+    - assets/images/sun.png
+    - assets/images/moon.png
 
   fonts:
      - family: SCDream

@@ -72,7 +72,7 @@ class TimelinePainter extends CustomPainter {
         text: TextSpan(
           text: hour.toString().padLeft(2, '0'), // 00, 01 ... 23
           style: const TextStyle(
-            fontSize: 11,
+            fontSize: 13,
             color: Colors.black54,
             fontFamily: 'SCDream',
             fontWeight: FontWeight.w500,
