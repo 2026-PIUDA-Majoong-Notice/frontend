@@ -13,8 +13,8 @@ class TimelinePainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final center = Offset(size.width / 2, size.height / 2);
     final radius = min(size.width, size.height) / 2;
-    final labelRadius = radius * 1.15;
-    final innerRadius = radius * 0.4; // 가운데 빈 원 크기
+    final labelRadius = radius * 1.15; // 숫자가 들어가는 원 반지름
+    final innerRadius = radius * 0.4; // 가운데 빈 원 반지름
 
     final slots = viewModel.data.slots;
     final sweepAngle = 2 * pi / 48; // 한 구간 각도 (7.5도)
@@ -25,48 +25,50 @@ class TimelinePainter extends CustomPainter {
 
       final paint = Paint()
         ..color = viewModel.colorForProbability(slots[i].probability)
-        ..style = PaintingStyle.fill;
+        ..style = PaintingStyle.fill; // 각 지점마다 색 지정하고, close로 그린 도형을 닫았을때, 안쪽을 자동으로 해당 색으로 채워줌
 
       // 부채꼴 그리기 (도넛 모양)
-      final path = Path()
-        ..moveTo(
+      final path = Path() //.. 붙이는 이유 : 위에 패스 객체 메서드를 연속으로 부르는데, 코드를 더 간결하게 하기위해서
+        ..moveTo( //그림을 그릴 펜의 좌표 설정 (시작점 지정)
           center.dx + innerRadius * cos(startAngle),
           center.dy + innerRadius * sin(startAngle),
         )
-        ..lineTo(
+        ..lineTo( // 현재 위치에서 해당 좌표까지 직선 그리기
           center.dx + radius * cos(startAngle),
           center.dy + radius * sin(startAngle),
         )
-        ..arcTo(
+        ..arcTo( // 호 그리기
           Rect.fromCircle(center: center, radius: radius),
           startAngle,
           sweepAngle,
           false,
         )
-        ..lineTo(
+        ..lineTo( // 안쪽으로 직선
           center.dx + innerRadius * cos(startAngle + sweepAngle),
           center.dy + innerRadius * sin(startAngle + sweepAngle),
         )
-        ..arcTo(
+        ..arcTo( // 안쪽 호 그리기
           Rect.fromCircle(center: center, radius: innerRadius),
           startAngle + sweepAngle,
           -sweepAngle,
           false,
         )
-        ..close();
+        ..close(); // 닫기
 
       canvas.drawPath(path, paint);
     }
+
+    // 시간 텍스트 넣기
 
     for (int hour = 0; hour < 24; hour++) {
       // 12시가 맨 위, 시계방향
       // 한 시간 = 15도, 12시 기준이니까 (hour - 12) 칸 이동
       final angle = -pi / 2 + (hour - 12) * (2 * pi / 24);
 
-      final x = center.dx + labelRadius * cos(angle);
+      final x = center.dx + labelRadius * cos(angle); // 해당하는 시간이 위치한 각도일때, 좌표 구하기
       final y = center.dy + labelRadius * sin(angle);
 
-      final textPainter = TextPainter(
+      final textPainter = TextPainter( // 숫자 쓰기
         text: TextSpan(
           text: hour.toString().padLeft(2, '0'), // 00, 01 ... 23
           style: const TextStyle(
@@ -77,7 +79,7 @@ class TimelinePainter extends CustomPainter {
           ),
         ),
         textDirection: TextDirection.ltr,
-      )..layout();
+      )..layout(); // 글자 크기 계산
 
       canvas.save();
       // 글자 위치로 이동
@@ -92,7 +94,7 @@ class TimelinePainter extends CustomPainter {
       canvas.restore();
     }
 
-    final tickPaint = Paint()
+    final tickPaint = Paint() // 30분,1시간 마다 막대 그리기
       ..color = Colors.black26
       ..strokeWidth = 1;
 
@@ -116,6 +118,8 @@ class TimelinePainter extends CustomPainter {
 
       canvas.drawLine(p1, p2, tickPaint);
     }
+
+    //현재 시간에 화살표 그리기
 
     final now = DateTime.now();
     final currentTime = now.hour + now.minute / 60;
