@@ -1,7 +1,8 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:majoong_notice/pages/add_page/add_page_health/widgets/cognition_status_option.dart';
 
+import '../add_page_medicine/add_page_medicine.dart';
+import 'widgets/cognition_status_option.dart';
 import '../widgets/add_choice_pill.dart';
 import '../widgets/add_step_frame.dart';
 
@@ -30,7 +31,7 @@ class _AddPageHealthState extends State<AddPageHealth> {
             Get.back();
           },
           onNext: () {
-            /// 다음 화면 이동
+            Get.to(() => const AddPageMedicine());
           },
           child: Column(
             children: [
