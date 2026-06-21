@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'add_choice_pill_button.dart';
 
 class AddChoicePill<T> extends StatelessWidget {
   final String label;
@@ -7,6 +8,7 @@ class AddChoicePill<T> extends StatelessWidget {
   final T selectedValue;
   final String Function(T value) labelBuilder;
   final ValueChanged<T> onChanged;
+  final bool wrapOptions;
 
   const AddChoicePill({
     super.key,
@@ -15,10 +17,53 @@ class AddChoicePill<T> extends StatelessWidget {
     required this.selectedValue,
     required this.labelBuilder,
     required this.onChanged,
+    this.wrapOptions = false,
   });
+
+  static const TextStyle _labelStyle = TextStyle(
+    fontFamily: 'SCDream',
+    fontSize: 15,
+    fontWeight: FontWeight.w500,
+    color: Color(0xff26332F),
+  );
 
   @override
   Widget build(BuildContext context) {
+    if (wrapOptions) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Text(
+                label,
+                style: _labelStyle,
+              ),
+            ),
+            const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.only(left: 70, right: 40),
+              child: Wrap(
+                spacing: 16,
+                runSpacing: 12,
+                children: options.map((option) {
+                  final isSelected = option == selectedValue;
+
+                  return AddChoicePillButton(
+                    text: labelBuilder(option),
+                    isSelected: isSelected,
+                    onTap: () => onChanged(option),
+                  );
+                }).toList(),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
     return Row(
       children: [
         Padding(
@@ -27,12 +72,7 @@ class AddChoicePill<T> extends StatelessWidget {
             width: 60,
             child: Text(
               label,
-              style: const TextStyle(
-                fontFamily: 'SCDream',
-                fontSize: 15,
-                fontWeight: FontWeight.w500,
-                color: Color(0xff26332F),
-              ),
+              style: _labelStyle,
             ),
           ),
         ),
@@ -43,36 +83,10 @@ class AddChoicePill<T> extends StatelessWidget {
 
             return Padding(
               padding: const EdgeInsets.only(right: 12),
-              child: GestureDetector(
+              child: AddChoicePillButton(
+                text: labelBuilder(option),
+                isSelected: isSelected,
                 onTap: () => onChanged(option),
-                child: AnimatedContainer(
-                  duration: const Duration(milliseconds: 160),
-                  height: 45,
-                  width: 75,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: isSelected
-                        ? const Color(0xffE5F3EE)
-                        : Colors.white,
-                    borderRadius: BorderRadius.circular(14),
-                    border: Border.all(
-                      color: isSelected
-                          ? const Color(0xff6FAF9B)
-                          : const Color(0xffD9DEDB),
-                      width: isSelected ? 1.4 : 1,
-                    ),
-                  ),
-                  child: Text(
-                    labelBuilder(option),
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontFamily: 'SCDream',
-                      fontSize: 16,
-                      fontWeight: FontWeight.w300,
-                      color: Color(0xff26332F),
-                    ),
-                  ),
-                ),
               ),
             );
           }).toList(),

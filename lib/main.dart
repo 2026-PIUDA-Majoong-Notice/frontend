@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 import 'components/bottom_navi_bar.dart';
@@ -14,7 +15,7 @@ class NoticeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0xffF6FAF8),
       ),

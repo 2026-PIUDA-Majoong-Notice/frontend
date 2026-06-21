@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/add_form_text_field.dart';
@@ -6,6 +7,7 @@ import 'widgets/add_time_field.dart';
 import 'widgets/profile_image_picker.dart';
 import '../widgets/add_choice_pill.dart';
 import '../widgets/add_step_frame.dart';
+import '../add_page_health/add_page_health.dart';
 
 
 class AddPageBasic extends StatefulWidget {
@@ -36,10 +38,10 @@ class _AddPageBasicState extends State<AddPageBasic> {
         child: AddStepFrame(
             title: '기본 정보',
           onCancel: () {
-            /// 이전 단계 이동
+            Get.back();
           },
           onNext: () {
-            /// 다음 단계 이동
+            Get.to(() => const AddPageHealth());
           },
             child: Column(
               children: [
