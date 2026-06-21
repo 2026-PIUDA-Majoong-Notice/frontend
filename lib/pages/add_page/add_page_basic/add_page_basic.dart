@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 import 'widgets/add_form_text_field.dart';
+import 'widgets/add_time_field.dart';
 import 'widgets/profile_image_picker.dart';
 import '../widgets/add_choice_pill.dart';
 import '../widgets/add_step_frame.dart';
@@ -25,6 +26,8 @@ class AddPageBasic extends StatefulWidget {
 
 class _AddPageBasicState extends State<AddPageBasic> {
   String selectedGender = '여성';
+  TimeOfDay? wakeUpTime;
+  TimeOfDay? sleepTime;
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +66,30 @@ class _AddPageBasicState extends State<AddPageBasic> {
                       selectedGender = value;
                     });
                   },
-                )
+                ),
+                AddFormTextField(
+                  label: '생년월일',
+                  onChanged: widget.onNameChanged,
+                  hintText: '예시) 19611009',
+                ),
+                AddTimeField(
+                  label: '기상시간',
+                  value: wakeUpTime,
+                  onChanged: (value) {
+                    setState(() {
+                      wakeUpTime = value;
+                    });
+                  },
+                ),
+                AddTimeField(
+                  label: '취침시간',
+                  value: sleepTime,
+                  onChanged: (value) {
+                    setState(() {
+                      sleepTime = value;
+                    });
+                  },
+                ),
               ],
             ),
         ),
