@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:majoong_notice/pages/add_page/add_page_health/widgets/cognition_status_option.dart';
 
 import '../widgets/add_choice_pill.dart';
 import '../widgets/add_step_frame.dart';
@@ -16,6 +17,7 @@ class _AddPageHealthState extends State<AddPageHealth> {
   String diaperUsage = '사용 안함';
   String bowelPattern = '없음';
   String mobilityStatus = '보조기구 필요';
+  String cognitionStatus = '부분 가능';
 
   @override
   Widget build(BuildContext context) {
@@ -68,6 +70,56 @@ class _AddPageHealthState extends State<AddPageHealth> {
                   });
                 },
               ),
+              /// 인지 상태
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(left: 10, bottom: 24),
+                    child: Text(
+                      '인지 상태',
+                      style: TextStyle(
+                        fontFamily: 'SCDream',
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                        color: Color(0xff26332F),
+                      ),
+                    ),
+                  ),
+                  CognitionStatusOption(
+                    title: '명확함\n(정상)',
+                    subtitle: '용변 의사를 스스로 명확히 인지하고\n표현할 수 있음',
+                    isSelected: cognitionStatus == '명확함',
+                    onTap: () {
+                      setState(() {
+                        cognitionStatus = '명확함';
+                      });
+                    },
+                  ),
+                  const SizedBox(height: 18),
+                  CognitionStatusOption(
+                    title: '부분 가능\n(경도 저하)',
+                    subtitle: '가끔 인지하지 못하거나 표현이 늦어\n실수가 발생함',
+                    isSelected: cognitionStatus == '부분 가능',
+                    onTap: () {
+                      setState(() {
+                        cognitionStatus = '부분 가능';
+                      });
+                    },
+                  ),
+                  const SizedBox(height: 18),
+                  CognitionStatusOption(
+                    title: '표현 불가\n(중증 저하)',
+                    subtitle: '배변 의사를 스스로 인지하거나\n표현하기 어려움',
+                    isSelected: cognitionStatus == '표현 불가',
+                    onTap: () {
+                      setState(() {
+                        cognitionStatus = '표현 불가';
+                      });
+                    },
+                  ),
+                ],
+              )
             ],
           ),
         ),
