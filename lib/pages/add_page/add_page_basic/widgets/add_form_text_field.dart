@@ -24,7 +24,7 @@ class AddFormTextField extends StatelessWidget {
     return Row(
       children: [
         Padding(
-          padding: const EdgeInsets.all(40),
+          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
           child: SizedBox(
             width: 60,
             child: Text(
@@ -49,16 +49,16 @@ class AddFormTextField extends StatelessWidget {
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontFamily: 'SCDream',
-              fontSize: 16,
-              fontWeight: FontWeight.w300,
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
               color: Color(0xff26332F),
             ),
             decoration: InputDecoration(
               hintText: hintText,
               hintStyle: const TextStyle(
                 fontFamily: 'SCDream',
-                fontSize: 13,
-                fontWeight: FontWeight.w300,
+                fontSize: 12,
+                fontWeight: FontWeight.w400,
                 color: Color(0xffD4D8D6),
               ),
               filled: true,

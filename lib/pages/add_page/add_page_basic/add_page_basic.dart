@@ -1,12 +1,13 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:majoong_notice/pages/add_page/add_page_basic/widgets/add_form_text_field.dart';
 
+import 'widgets/add_form_text_field.dart';
 import 'widgets/profile_image_picker.dart';
+import '../widgets/add_choice_pill.dart';
 import '../widgets/add_step_frame.dart';
 
 
-class AddPageBasic extends StatelessWidget {
+class AddPageBasic extends StatefulWidget {
   final File? profileImage;
   final VoidCallback onProfileImageTap;
   final ValueChanged<String> onNameChanged;
@@ -19,6 +20,13 @@ class AddPageBasic extends StatelessWidget {
   });
 
   @override
+  State<AddPageBasic> createState() => _AddPageBasicState();
+}
+
+class _AddPageBasicState extends State<AddPageBasic> {
+  String selectedGender = '여성';
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
@@ -28,12 +36,13 @@ class AddPageBasic extends StatelessWidget {
               children: [
                 const SizedBox(height: 40),
                 ProfileImagePicker(
-                    imageFile: profileImage,
-                    onTap: onProfileImageTap,
+                    imageFile: widget.profileImage,
+                    onTap: widget.onProfileImageTap,
                 ),
+                const SizedBox(height: 30),
                 AddFormTextField(
                   label: '성함',
-                  onChanged: onNameChanged,
+                  onChanged: widget.onNameChanged,
                   suffix: const Text(
                     '어르신',
                     style: TextStyle(
@@ -44,6 +53,17 @@ class AddPageBasic extends StatelessWidget {
                     ),
                   ),
                 ),
+                AddChoicePill<String>(
+                  label: '성별',
+                  options: const ['남성', '여성'],
+                  selectedValue: selectedGender,
+                  labelBuilder: (value) => value,
+                  onChanged: (value) {
+                    setState(() {
+                      selectedGender = value;
+                    });
+                  },
+                )
               ],
             ),
         ),
