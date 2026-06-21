@@ -35,6 +35,12 @@ class _AddPageBasicState extends State<AddPageBasic> {
       body: SafeArea(
         child: AddStepFrame(
             title: '기본 정보',
+          onCancel: () {
+            /// 이전 단계 이동
+          },
+          onNext: () {
+            /// 다음 단계 이동
+          },
             child: Column(
               children: [
                 const SizedBox(height: 40),
