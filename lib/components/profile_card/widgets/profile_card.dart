@@ -54,14 +54,14 @@ class _ProfileCardState extends State<ProfileCard> {
                 children: [
                   Positioned( // 현재 시간대 용변확률
                     top: 10,
-                    left: 227,
+                    left: 217,
                     child: Row(
                       children: [
                         Text(
                           "현재 시간대\n용변 확률",
                           textAlign: TextAlign.right,
                           style: TextStyle(
-                            fontSize: 10,
+                            fontSize: 9,
                             fontFamily: "SCDream",
                             color: Color(0xFF26332F).withOpacity(0.5),
                           ),
@@ -72,6 +72,7 @@ class _ProfileCardState extends State<ProfileCard> {
                           style: TextStyle(
                             fontSize: 20,
                             fontFamily: "SCDream",
+                            fontWeight: FontWeight.w700,
                             color: viewModel.probablityLevel() == 0
                                 ? Color(0xFF4A80E5)
                                 : viewModel.probablityLevel() == 1
@@ -80,10 +81,13 @@ class _ProfileCardState extends State<ProfileCard> {
                           ),
                         ),
                         SizedBox(width: 3),
-                        Image(
-                          image: AssetImage(viewModel.probabilityImagePath()),
-                          width: 25,
-                          height: 25,
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 5),
+                          child: Image(
+                            image: AssetImage(viewModel.probabilityImagePath()),
+                            width: 25,
+                            height: 25,
+                          ),
                         ),
                       ],
                     ),
@@ -102,7 +106,7 @@ class _ProfileCardState extends State<ProfileCard> {
                   Positioned(
                     // 이름,태그들, 마지막 용변 이후 n시간 경과
                     top: 45,
-                    left: 105,
+                    left: 100,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -136,7 +140,7 @@ class _ProfileCardState extends State<ProfileCard> {
                         SizedBox(height: 13),
 
                         Padding(
-                          padding: const EdgeInsets.only(left: 15),
+                          padding: const EdgeInsets.only(left: 23),
                           child: Wrap(
                             spacing: 8,
                             children: [
@@ -162,10 +166,10 @@ class _ProfileCardState extends State<ProfileCard> {
                             ],
                           ),
                         ),
-                        SizedBox(height: 12),
+                        SizedBox(height: 9),
 
                         Padding(
-                          padding: const EdgeInsets.only(left: 100),
+                          padding: const EdgeInsets.only(left: 93),
                           child: Text(
                             '마지막 용변 후 ${viewModel.lastToiletTime()}시간 경과',
                             style: TextStyle(
@@ -181,7 +185,7 @@ class _ProfileCardState extends State<ProfileCard> {
                   ),
                   Positioned(
                     // 현재 시간 용변 확률 낮음/보통/높음
-                    left: 246,
+                    left: 236,
                     top: 50,
                     child: Text(
                       probabilityComments[viewModel.probablityLevel()],

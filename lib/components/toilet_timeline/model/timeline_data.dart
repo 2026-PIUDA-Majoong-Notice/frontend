@@ -17,7 +17,8 @@ class TimelineData {
 
         int prob = 20;
         if (time >= 7 && time <= 8) prob = 75;
-        if (time >= 14 && time <= 15) prob = 85;  // 이때만 확률 높게 테스트 데이터 만들기
+        if (time >= 14 && time <= 19) prob = 85;  // 이때만 확률 높게 테스트 데이터 만들기
+
         return TimelineSlot(time: time, probability: prob);
       }),
     );

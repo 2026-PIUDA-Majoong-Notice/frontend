@@ -17,11 +17,12 @@ class TimelinePainter extends CustomPainter {
     final innerRadius = radius * 0.4; // 가운데 빈 원 반지름
 
     final slots = viewModel.data.slots;
+
     final sweepAngle = 2 * pi / 48; // 한 구간 각도 (7.5도)
 
     for (int i = 0; i < slots.length; i++) {
       // 12시가 맨 위(-90도)부터 시작, 시계방향
-      final startAngle = -pi / 2 + (i * sweepAngle);
+      final startAngle = -pi / 2 + ((i - 24) * sweepAngle);
 
       final paint = Paint()
         ..color = viewModel.colorForProbability(slots[i].probability)

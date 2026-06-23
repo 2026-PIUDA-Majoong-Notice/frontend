@@ -18,17 +18,19 @@ class HomePage extends StatelessWidget {
     final viewModel = ProfileCardViewModel(data: ProfileCardData.dummy());
     final timeLineViewModel = TimelineViewModel(data: TimelineData.dummy());
 
-    return Scaffold(body: Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Center(
-        child: Column(
-
-          children: [
-            const SizedBox(height: 50,),
-            ProfileCard(data: viewModel,),
-            const SizedBox(height: 20,),
-            ToiletTimeline(viewModel: timeLineViewModel)
-          ],
+    return Scaffold(body: SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Center(
+          child: Column(
+      
+            children: [
+              const SizedBox(height: 50,),
+              ProfileCard(data: viewModel,),
+              const SizedBox(height: 20,),
+              ToiletTimeline(viewModel: timeLineViewModel)
+            ],
+          ),
         ),
       ),
     ),

@@ -55,8 +55,8 @@ class _ToiletTimelineState extends State<ToiletTimeline> {
                     child: Text(
                       "용변 타임라인",
                       style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w300,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
                         fontFamily: 'SCDream',
                       ),
                     ),
@@ -66,7 +66,7 @@ class _ToiletTimelineState extends State<ToiletTimeline> {
                   width: 300,
                   height: 330,
                   child: Transform.scale(
-                    scale: 0.7,
+                    scale: 0.63,
                     child: CustomPaint(
                       painter: TimelinePainter(viewModel: viewModel),
                     ),
@@ -87,7 +87,11 @@ class _ToiletTimelineState extends State<ToiletTimeline> {
           Positioned(
             top: 198,
             left: 163,
-            child: Image(image: AssetImage("./assets/images/emoji_low.png"), width: 37, height: 37), //나중에 유저모델 확정 되면 차차 로직 넣어야 할 것 같습니다.
+            child: Image(
+              image: AssetImage("./assets/images/emoji_low.png"),
+              width: 37,
+              height: 37,
+            ), //나중에 유저모델 확정 되면 차차 로직 넣어야 할 것 같습니다.
           ),
           Positioned(
             left: 305,
@@ -96,6 +100,17 @@ class _ToiletTimelineState extends State<ToiletTimeline> {
               image: AssetImage("./assets/images/sun.png"),
               width: 35,
               height: 35,
+            ),
+          ),
+          Positioned(
+            top: 14,
+            left: 190,
+            child: Row(
+              children: [
+                Text("다음 대변\n예상 시간", style: TextStyle(fontFamily: 'SCDream', fontSize: 10)),
+                SizedBox(width: 10,),
+                Text(viewModel.nextRiskPeriod()!, style: TextStyle(fontFamily: 'SCDream', fontSize: 15))
+              ],
             ),
           ),
         ],

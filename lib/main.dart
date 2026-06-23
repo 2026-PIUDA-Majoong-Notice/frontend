@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majoong_notice/pages/auth/widgets/login_page.dart';
 
 import 'components/bottom_navi_bar.dart';
 import 'pages/onboarding_page/onboarding_page.dart';
@@ -16,7 +17,8 @@ class NoticeApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0xffF6FAF8),
       ),
-      home: const OnboardingPage(),
+      // home: const OnboardingPage(),
+      home: LoginPage(),
       debugShowCheckedModeBanner: false,
     );
   }
