@@ -3,10 +3,10 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/add_form_text_field.dart';
-import 'widgets/add_time_field.dart';
+import '../../../widgets/add_time_field.dart';
 import 'widgets/profile_image_picker.dart';
-import '../widgets/add_choice_pill.dart';
-import '../widgets/add_step_frame.dart';
+import '../../../widgets/add_choice_pill.dart';
+import '../../../widgets/add_step_frame.dart';
 import '../add_page_health/add_page_health.dart';
 
 

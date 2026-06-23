@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/add_step_frame.dart';
+import '../../../widgets/add_step_frame.dart';
 import 'widgets/add_search_field.dart';
 
 class AddPageMedicine extends StatefulWidget {

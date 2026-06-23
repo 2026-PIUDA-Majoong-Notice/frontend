@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../add_page_medicine/add_page_medicine.dart';
 import 'widgets/cognition_status_option.dart';
-import '../widgets/add_choice_pill.dart';
-import '../widgets/add_step_frame.dart';
+import '../../../widgets/add_choice_pill.dart';
+import '../../../widgets/add_step_frame.dart';
 
 
 class AddPageHealth extends StatefulWidget {
