@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'components/bottom_navi_bar.dart';
 import 'pages/onboarding_page/onboarding_page.dart';
 import 'pages/add_page/add_page_basic/add_page_basic.dart';
+import 'pages/record_page/record_page_main/record_page_main.dart';
 
 
 void main() {
@@ -19,11 +20,7 @@ class NoticeApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0xffF6FAF8),
       ),
-      home: AddPageBasic(
-        profileImage: null,
-        onProfileImageTap: () {  },
-        onNameChanged: (value) {},
-      ),
+      home: const RecordPageMain(),
       debugShowCheckedModeBanner: false,
     );
   }
@@ -39,11 +36,10 @@ class Notice extends StatefulWidget {
 class _NoticeState extends State<Notice> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: Text('메인화면'),
       ),
-      bottomNavigationBar: BottomNaviBar(),
     );
   }
 }
