@@ -109,7 +109,7 @@ class _RecordPageMainState extends State<RecordPageMain> {
                     label: '수면',
                   ),
                   SizedBox(width: 30),
-                  LifeRecordCard(leftText: '전날 21시 취침', rightText: '10시 기상')
+                  LifeRecordCard(leftText: '21시 취침', rightText: '10시 기상')
                 ],
               ),
             ),

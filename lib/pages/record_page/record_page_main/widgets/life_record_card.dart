@@ -52,7 +52,7 @@ class LifeRecordCard extends StatelessWidget {
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontFamily: 'SCDream',
-                fontSize: 15,
+                fontSize: 13,
                 fontWeight: FontWeight.w300,
                 color: Color(0xff26332F),
               ),
