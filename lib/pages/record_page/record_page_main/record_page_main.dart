@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
+import '../record_page_add/record_page_add.dart';
 import 'widgets/add_record_card_button.dart';
 import 'widgets/record_type_icon.dart';
 import '../../../components/bottom_navi_bar.dart';
@@ -26,7 +27,7 @@ class _RecordPageMainState extends State<RecordPageMain> {
             const SizedBox(height: 20),
             AddRecordCardButton(
               onTap: () {
-                // Get.to(() => const RecordPageAdd());
+                Get.to(() => const RecordPageAdd());
               },
             ),
             const Padding(
