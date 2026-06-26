@@ -3,6 +3,9 @@ import 'package:get/get.dart';
 
 import '../../components/bottom_navi_bar.dart';
 import 'model/settings_menu_item.dart';
+import 'settings_alarm_page/settings_alarm_page.dart';
+import 'settings_display_page/settings_display_page.dart';
+import 'settings_info_page/settings_info_page.dart';
 import 'widgets/settings_menu_tile.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -13,13 +16,13 @@ class SettingsPage extends StatelessWidget {
       SettingsMenuItem(
         title: '내 정보',
         onTap: () {
-          //Get.to(() => const SettingsInfoPage());
+          Get.to(() => const SettingsInfoPage());
         },
       ),
       SettingsMenuItem(
         title: '알림 설정',
         onTap: () {
-          //Get.to(() => const SettingsAlarmPage());
+          Get.to(() => const SettingsAlarmPage());
         },
       ),
       const SettingsMenuItem(
@@ -28,7 +31,7 @@ class SettingsPage extends StatelessWidget {
       SettingsMenuItem(
         title: '화면 설정',
         onTap: () {
-          //Get.to(() => const SettingsDisplayPage());
+          Get.to(() => const SettingsDisplayPage());
         },
       ),
       const SettingsMenuItem(
