@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 import '../pages/record_page/record_page_main/record_page_main.dart';
+import '../pages/settings_page/settings_page.dart';
 
 
 class BottomNaviBar extends StatelessWidget {
@@ -21,8 +22,17 @@ class BottomNaviBar extends StatelessWidget {
         onTap: (index) {
           if (index == currentIndex) return;
 
+          if (index == 0) {
+            /// TODO: 홈 페이지 만들면 연결
+            return;
+          }
           if (index == 1) {
             Get.off(() => const RecordPageMain());
+            return;
+          }
+          if (index == 2) {
+            Get.off(() => const SettingsPage());
+            return;
           }
         },
         type: BottomNavigationBarType.fixed,
