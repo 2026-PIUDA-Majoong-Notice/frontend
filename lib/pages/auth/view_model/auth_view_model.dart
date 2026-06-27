@@ -22,6 +22,14 @@ class AuthViewModel extends ChangeNotifier { // 검증 로직을 설계
     return null;
   }
 
+  String? validateName(String? value) {
+    if (value == null || value.isEmpty) {
+      return '성함을 입력해주세요';
+    } // 일단 입력만
+
+    return null;
+  }
+
   String? validatePasswordConfirm(String? value, String password) { //비밀번호 확인
     if (value == null || value.isEmpty) {
       return '비밀번호를 다시 입력해주세요';
