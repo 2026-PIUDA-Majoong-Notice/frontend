@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../model/record_add_type.dart';
 import 'selectable_record_type_button.dart';
 
+
 class RecordTypeSelectStep extends StatelessWidget {
   final Set<RecordAddType> selectedTypes;
   final ValueChanged<RecordAddType> onTypeTap;

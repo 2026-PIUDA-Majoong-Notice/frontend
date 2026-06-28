@@ -68,9 +68,39 @@ class _SelectedRecordFormStepState extends State<SelectedRecordFormStep> {
               ),
             ),
 
-          if (widget.selectedTypes.contains(RecordAddType.mealWater))
+          if (widget.selectedTypes.contains(RecordAddType.water))
             RecordSection(
-              title: '식사 / 수분',
+              title: '수분',
+              child: Column(
+                children: [
+                  AddTimeField(
+                    label: '수분 섭취 시간',
+                    value: waterTime,
+                    onChanged: (value) {
+                      setState(() {
+                        waterTime = value;
+                      });
+                    },
+                  ),
+                  AddChoicePill<String>(
+                    label: '수분\n섭취량',
+                    wrapOptions: true,
+                    options: const ['반 컵', '한 컵', '한 컵 이상'],
+                    selectedValue: waterAmount,
+                    labelBuilder: (value) => value,
+                    onChanged: (value) {
+                      setState(() {
+                        waterAmount = value;
+                      });
+                    },
+                  ),
+                ],
+              ),
+            ),
+
+          if (widget.selectedTypes.contains(RecordAddType.meal))
+            RecordSection(
+              title: '식사',
               child: Column(
                 children: [
                   AddTimeField(
@@ -91,27 +121,6 @@ class _SelectedRecordFormStepState extends State<SelectedRecordFormStep> {
                     onChanged: (value) {
                       setState(() {
                         mealAmount = value;
-                      });
-                    },
-                  ),
-                  AddTimeField(
-                    label: '수분 섭취 시간',
-                    value: waterTime,
-                    onChanged: (value) {
-                      setState(() {
-                        waterTime = value;
-                      });
-                    },
-                  ),
-                  AddChoicePill<String>(
-                    label: '수분\n섭취량',
-                    wrapOptions: true,
-                    options: const ['반 컵', '한 컵', '한 컵 이상'],
-                    selectedValue: waterAmount,
-                    labelBuilder: (value) => value,
-                    onChanged: (value) {
-                      setState(() {
-                        waterAmount = value;
                       });
                     },
                   ),
