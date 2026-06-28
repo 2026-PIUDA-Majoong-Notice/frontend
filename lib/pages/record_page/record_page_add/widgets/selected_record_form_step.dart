@@ -134,7 +134,7 @@ class _SelectedRecordFormStepState extends State<SelectedRecordFormStep> {
               child: Column(
                 children: [
                   AddTimeField(
-                    label: '취침 시간',
+                    label: '전일 취침 시간',
                     value: sleepTime,
                     onChanged: (value) {
                       setState(() {
@@ -143,7 +143,7 @@ class _SelectedRecordFormStepState extends State<SelectedRecordFormStep> {
                     },
                   ),
                   AddTimeField(
-                    label: '기상 시간',
+                    label: '금일 기상 시간',
                     value: wakeUpTime,
                     onChanged: (value) {
                       setState(() {
