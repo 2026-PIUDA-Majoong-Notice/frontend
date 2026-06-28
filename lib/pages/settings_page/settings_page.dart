@@ -49,7 +49,7 @@ class SettingsPage extends StatelessWidget {
       backgroundColor: const Color(0xffF6FAF8),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(left: 40, top: 40),
+          padding: const EdgeInsets.only(left: 35, top: 40),
           child: Column(
             children: [
               Expanded(
