@@ -2,30 +2,43 @@ import 'package:flutter/material.dart';
 
 import '../widgets/settings_app_bar.dart';
 import '../widgets/settings_menu_tile.dart';
+import 'widgets/settings_display_font_tile.dart';
 
 
-class SettingsDisplayPage extends StatelessWidget {
+class SettingsDisplayPage extends StatefulWidget {
   const SettingsDisplayPage({super.key});
 
   @override
+  State<SettingsDisplayPage> createState() => _SettingsDisplayPageState();
+}
+
+class _SettingsDisplayPageState extends State<SettingsDisplayPage> {
+  bool isLargeText = false;
+
+  @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Color(0xffF8FCFA),
+    return Scaffold(
+      backgroundColor: const Color(0xffF8FCFA),
       body: SafeArea(
         child: Column(
           children: [
-            SettingsAppBar(title: '화면 설정'),
+            const SettingsAppBar(title: '화면 설정'),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 36),
+              padding: const EdgeInsets.symmetric(horizontal: 34),
               child: Column(
                 children: [
-                  SettingsMenuTile(
-                    title: '글자 크기',
+                  SettingsFontSizeTile(
+                    isLargeText: isLargeText,
+                    onChanged: (value) {
+                      setState(() {
+                        isLargeText = value;
+                      });
+                    },
                   ),
-                  SettingsMenuTile(
+                  const SettingsMenuTile(
                     title: '시간 표시 방식',
                   ),
-                  SettingsMenuTile(
+                  const SettingsMenuTile(
                     title: '다크모드',
                     showDivider: false,
                   ),
