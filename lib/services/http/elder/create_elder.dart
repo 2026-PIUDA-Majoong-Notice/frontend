@@ -33,7 +33,13 @@ Future<int> createElder({
       },
     );
 
-    return response.data['elderId'] as int;
+    final elderId = response.data['elderId'];
+
+    if (elderId is num) {
+      return elderId.toInt();
+    }
+
+    throw ApiException('어르신 등록 응답이 올바르지 않아요.');
   } on DioException catch (e) {
     throw ApiException(
       e.response?.data?['message'] ?? '어르신 등록에 실패했어요.',

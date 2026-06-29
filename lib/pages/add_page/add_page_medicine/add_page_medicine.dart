@@ -3,9 +3,33 @@ import 'package:flutter/material.dart';
 
 import '../../../widgets/add_step_frame.dart';
 import 'widgets/add_search_field.dart';
+import '../../../services/http/elder/create_elder.dart';
 
 class AddPageMedicine extends StatefulWidget {
-  const AddPageMedicine({super.key});
+  final int imageId;
+  final String name;
+  final String birth;
+  final String gender;
+  final String wakeTime;
+  final String sleepTime;
+  final bool usesDiaper;
+  final String bowelType;
+  final String mobilityLevel;
+  final String cognitiveStatus;
+
+  const AddPageMedicine({
+    super.key,
+    required this.imageId,
+    required this.name,
+    required this.birth,
+    required this.gender,
+    required this.wakeTime,
+    required this.sleepTime,
+    required this.usesDiaper,
+    required this.bowelType,
+    required this.mobilityLevel,
+    required this.cognitiveStatus,
+  });
 
   @override
   State<AddPageMedicine> createState() => _AddPageMedicineState();
@@ -19,6 +43,7 @@ class _AddPageMedicineState extends State<AddPageMedicine> {
   final Map<String, Set<String>> selectedMedicineTimes = {};
   final List<String> timeOptions = ['아침', '점심', '저녁', '취침 전'];
   bool isSearchActive = false;
+  bool isSubmitting = false;
 
   void toggleMedicine(String medicine) {
     setState(() {
@@ -75,8 +100,25 @@ class _AddPageMedicineState extends State<AddPageMedicine> {
           onCancel: () {
             Get.back();
           },
-          onNext: () {
-            // TODO: 홈 화면으로 이동
+          onNext: () async {
+            try {
+              final elderId = await createElder(
+                imageId: widget.imageId,
+                name: widget.name,
+                birth: widget.birth,
+                gender: widget.gender,
+                wakeTime: widget.wakeTime,
+                sleepTime: widget.sleepTime,
+                usesDiaper: widget.usesDiaper,
+                bowelType: widget.bowelType,
+                mobilityLevel: widget.mobilityLevel,
+                cognitiveStatus: widget.cognitiveStatus,
+              );
+
+              Get.snackbar('등록 완료', '어르신 정보가 등록되었어요.');
+            } catch (e) {
+              Get.snackbar('등록 실패', '다시 시도해주세요.');
+            }
           },
           child: Column(
             children: [

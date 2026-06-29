@@ -8,7 +8,24 @@ import '../../../widgets/add_step_frame.dart';
 
 
 class AddPageHealth extends StatefulWidget {
-  const AddPageHealth({super.key});
+  final int? profileImageId;
+  final int imageId;
+  final String name;
+  final String birth;
+  final String gender;
+  final String wakeTime;
+  final String sleepTime;
+
+  const AddPageHealth({
+    super.key,
+    required this.profileImageId,
+    required this.imageId,
+    required this.name,
+    required this.birth,
+    required this.gender,
+    required this.wakeTime,
+    required this.sleepTime,
+  });
 
   @override
   State<AddPageHealth> createState() => _AddPageHealthState();
@@ -19,6 +36,48 @@ class _AddPageHealthState extends State<AddPageHealth> {
   String bowelPattern = '없음';
   String mobilityStatus = '보조기구 필요';
   String cognitionStatus = '부분 가능';
+
+  bool get usesDiaper => diaperUsage == '사용';
+
+  String get bowelType {
+    switch (bowelPattern) {
+      case '변비':
+        return 'CONSTIPATION';
+      case '설사':
+        return 'DIARRHEA';
+      case '없음':
+      default:
+        return 'NORMAL';
+    }
+  }
+
+  String get mobilityLevel {
+    switch (mobilityStatus) {
+      case '독립 보행':
+        return 'INDEPENDENT';
+      case '보조기구\n필요':
+        return 'WALKING_AID';
+      case '부축 필요':
+        return 'NEEDS_ASSISTANCE';
+      case '거동불가/\n와상':
+        return 'BEDRIDDEN';
+      default:
+        return 'WALKING_AID';
+    }
+  }
+
+  String get cognitiveStatusValue {
+    switch (cognitionStatus) {
+      case '명확함':
+        return 'NORMAL';
+      case '부분 가능':
+        return 'MILD_IMPAIRMENT';
+      case '표현 불가':
+        return 'SEVERE_IMPAIRMENT';
+      default:
+        return 'MILD_IMPAIRMENT';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +90,18 @@ class _AddPageHealthState extends State<AddPageHealth> {
             Get.back();
           },
           onNext: () {
-            Get.to(() => const AddPageMedicine());
+            Get.to(() => AddPageMedicine(
+              imageId: widget.imageId,
+              name: widget.name,
+              birth: widget.birth,
+              gender: widget.gender,
+              wakeTime: widget.wakeTime,
+              sleepTime: widget.sleepTime,
+              usesDiaper: usesDiaper,
+              bowelType: bowelType,
+              mobilityLevel: mobilityLevel,
+              cognitiveStatus: cognitiveStatusValue,
+            ));
           },
           child: Column(
             children: [
