@@ -8,6 +8,7 @@ import 'widgets/profile_image_picker.dart';
 import '../../../widgets/add_choice_pill.dart';
 import '../../../widgets/add_step_frame.dart';
 import '../add_page_health/add_page_health.dart';
+import '../../../services/http/image/upload_image.dart';
 
 
 class AddPageBasic extends StatefulWidget {
@@ -31,6 +32,38 @@ class _AddPageBasicState extends State<AddPageBasic> {
   TimeOfDay? wakeUpTime;
   TimeOfDay? sleepTime;
 
+  bool isUploadingImage = false;
+  int? profileImageId;
+
+  Future<void> _goNext() async {
+    try {
+      setState(() {
+        isUploadingImage = true;
+      });
+
+      if (widget.profileImage != null) {
+        profileImageId = await uploadImage(
+          imagePath: widget.profileImage!.path,
+        );
+      }
+
+      Get.to(() => AddPageHealth(
+        profileImageId: profileImageId,
+      ));
+    } catch (e) {
+      Get.snackbar(
+          '이미지 업로드 실패',
+          '사진 업로드에 실패했어요. 다시 시도해주세요.'
+      );
+    } finally {
+      if (!mounted) return;
+
+      setState(() {
+        isUploadingImage = false;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,9 +73,7 @@ class _AddPageBasicState extends State<AddPageBasic> {
           onCancel: () {
             Get.back();
           },
-          onNext: () {
-            Get.to(() => const AddPageHealth());
-          },
+          onNext: _goNext,
             child: Column(
               children: [
                 const SizedBox(height: 40),
