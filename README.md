@@ -11,7 +11,7 @@
 
 ## 📁 프로젝트 구조
 
-\`\`\`
+```
 lib/
 ├── core/                 # dio_client 등 앱 전역 설정
 ├── model/                # 데이터 모델 클래스
@@ -26,11 +26,11 @@ lib/
 │   ├── http/
 │   └── ...
 └── widgets/              # 공통 위젯 (여러 화면에서 재사용)
-\`\`\`
+```
 
 ## 🚀 실행 방법
 
-\`\`\`bash
+```bash
 flutter pub get
 flutter run
-\`\`\`
+```
