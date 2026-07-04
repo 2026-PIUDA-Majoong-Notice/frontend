@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:majoong_notice/components/loading_overlay.dart';
 import 'package:majoong_notice/pages/auth/view_model/auth_view_model.dart';
+import 'package:majoong_notice/pages/auth/widgets/find_password_page.dart';
 import 'package:majoong_notice/pages/auth/widgets/sign_up_page.dart';
 import 'package:majoong_notice/pages/home_page/widgets/home_page.dart';
+import 'package:majoong_notice/services/http/user/user_service.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -96,12 +100,23 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     SizedBox(height: 60),
                     ElevatedButton(
-                      onPressed: () {
+                      onPressed: () async {
                         setState(() {
                           _autovalidateMode = AutovalidateMode.onUserInteraction;  // 버튼 누르면 켬
                         });
                         if (_formKey.currentState!.validate()) {
-                          print('검증 통과!');
+                          showLoading();
+                          try {
+                            await login(
+                              email: emailController.text.trim(),
+                              password: passwordController.text,
+                            );
+                            hideLoading();
+                            Get.off(() => const HomePage());
+                          } catch (e) {
+                            hideLoading();
+                            Get.snackbar('로그인 실패', e.toString());
+                          }
                         }
                       },
                       style: ElevatedButton.styleFrom(
@@ -113,7 +128,7 @@ class _LoginPageState extends State<LoginPage> {
                           borderRadius: BorderRadius.circular(50),
                         ),
                       ),
-                      child: Text(
+                      child: const Text(
                         '로그인',
                         style: TextStyle(
                           fontFamily: 'SCDream',
@@ -141,7 +156,7 @@ class _LoginPageState extends State<LoginPage> {
                           borderRadius: BorderRadius.circular(50),
                         ),
                       ),
-                      child: Text(
+                      child: const Text(
                         '회원가입',
                         style: TextStyle(
                           fontFamily: 'SCDream',
@@ -150,9 +165,14 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     TextButton(
-                      onPressed: () => {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const FindPasswordPage()),
+                        );
+                      },
                       style: TextButton.styleFrom(overlayColor: Colors.transparent,padding: EdgeInsets.only(top: 12),minimumSize: Size.zero,tapTargetSize: MaterialTapTargetSize.shrinkWrap,),
-                      child: Text(
+                      child: const Text(
                         '비밀번호 찾기',
                         style: TextStyle(
                           decoration: TextDecoration.underline,

@@ -3,6 +3,8 @@ import 'package:majoong_notice/components/toilet_timeline/model/timeline_data.da
 
 class TimelineViewModel extends ChangeNotifier {
   TimelineData data;
+  final now = DateTime.now();
+  late final currentTimeSlot = ((now.hour + (now.minute >= 30 ? 0.5 : 0.0))* 2).toInt();
 
   TimelineViewModel({required this.data});
 
@@ -10,6 +12,12 @@ class TimelineViewModel extends ChangeNotifier {
     if (probability < 40) return const Color(0xFFC9DCFF).withOpacity(0.8);
     if (probability < 70) return const Color(0xFFFDBE72).withOpacity(0.8);
     return const Color(0xFFD96B6B).withOpacity(0.8);
+  }
+
+  String probabilityImagePath(int probability) {
+    if (probability < 40) return 'assets/images/emoji_low.png';
+    if (probability < 70) return 'assets/images/emoji_mid.png';
+    return 'assets/images/emoji_high.png';
   }
 
   String _formatTime(double time) {

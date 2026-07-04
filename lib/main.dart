@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:majoong_notice/pages/auth/widgets/login_page.dart';
+import 'package:get/get.dart';
+import 'package:majoong_notice/pages/home_page/widgets/home_page.dart';
 
 import 'components/bottom_navi_bar.dart';
 import 'pages/onboarding_page/onboarding_page.dart';
@@ -13,12 +14,11 @@ class NoticeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0xffF6FAF8),
       ),
-      // home: const OnboardingPage(),
-      home: LoginPage(),
+      home: const HomePage(),
       debugShowCheckedModeBanner: false,
     );
   }
@@ -34,11 +34,11 @@ class Notice extends StatefulWidget {
 class _NoticeState extends State<Notice> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: Text('메인화면'),
       ),
-      bottomNavigationBar: BottomNaviBar(),
+      bottomNavigationBar: BottomNaviBar(currentIndex: 0,),
     );
   }
 }

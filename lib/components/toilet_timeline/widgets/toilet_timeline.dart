@@ -88,10 +88,10 @@ class _ToiletTimelineState extends State<ToiletTimeline> {
             top: 198,
             left: 163,
             child: Image(
-              image: AssetImage("./assets/images/emoji_low.png"),
+              image: AssetImage(viewModel.probabilityImagePath(viewModel.data.slots[viewModel.currentTimeSlot].probability)),
               width: 37,
               height: 37,
-            ), //나중에 유저모델 확정 되면 차차 로직 넣어야 할 것 같습니다.
+            ),
           ),
           Positioned(
             left: 305,

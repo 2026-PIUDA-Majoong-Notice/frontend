@@ -3,6 +3,13 @@ import 'package:majoong_notice/services/api/api_client.dart';
 import 'package:majoong_notice/services/api/api_exception.dart';
 import 'package:majoong_notice/services/auth/token_storage.dart';
 
+String _extractErrorMessage(dynamic data, String fallback) {
+  if (data is Map && data['message'] is String) {
+    return data['message'] as String;
+  }
+  return fallback;
+}
+
 Future<int> signUp({
   required String email,
   required String password,
@@ -28,13 +35,8 @@ Future<int> signUp({
 
     throw ApiException('회원가입 응답이 올바르지 않아요.');
   } on DioException catch (e) {
-    print('=== DioException 발생 ===');
-    print('상태코드: ${e.response?.statusCode}');
-    print('응답 데이터: ${e.response?.data}');
-    print('요청 URL: ${e.requestOptions.uri}');
-    print('보낸 데이터: ${e.requestOptions.data}');
     throw ApiException(
-      e.response?.data?['message'] ?? '회원가입에 실패했어요.',
+      _extractErrorMessage(e.response?.data, '회원가입에 실패했어요.'),
       statusCode: e.response?.statusCode,
     );
   }
@@ -64,7 +66,7 @@ Future<void> login({
     await TokenStorage.saveRefreshToken(refreshToken);
   } on DioException catch (e) {
     throw ApiException(
-      e.response?.data?['message'] ?? '로그인에 실패했어요.',
+      _extractErrorMessage(e.response?.data, '로그인에 실패했어요.'),
       statusCode: e.response?.statusCode,
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majoong_notice/pages/auth/widgets/login_page.dart';
 import 'package:majoong_notice/pages/home_page/widgets/home_page.dart';
 
 import 'view_model/onboarding_view_model.dart';
@@ -80,7 +81,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         alignment: Alignment.centerRight,
                         child: TextButton(
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(),));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(),));
                             // TODO: 시작하기 눌렀을 때 홈으로 이동
                           },
                           style: TextButton.styleFrom(
