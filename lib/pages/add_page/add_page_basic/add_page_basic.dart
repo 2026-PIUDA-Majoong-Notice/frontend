@@ -49,6 +49,12 @@ class _AddPageBasicState extends State<AddPageBasic> {
 
       Get.to(() => AddPageHealth(
         profileImageId: profileImageId,
+        imageId: 0,
+        name: '',
+        birth: '',
+        gender: '',
+        wakeTime: '',
+        sleepTime: '',
       ));
     } catch (e) {
       Get.snackbar(

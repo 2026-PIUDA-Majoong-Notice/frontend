@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 import 'view_model/onboarding_view_model.dart';
@@ -79,7 +80,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         alignment: Alignment.centerRight,
                         child: TextButton(
                           onPressed: () {
-                            // TODO: 시작하기 눌렀을 때 홈으로 이동
+                            //Get.to(() => AddPageMedicine()),
                           },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,
