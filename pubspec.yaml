@@ -65,6 +65,20 @@ flutter:
     - assets/images/onboarding_1.png
     - assets/images/onboarding_2.png
     - assets/images/onboarding_3.png
+    - assets/images/profile_bg.png
+    - assets/images/icon_user.png
+    - assets/images/icon_add_person.png
+    - assets/images/icon_alarm.png
+    - assets/images/emoji_high.png
+    - assets/images/emoji_mid.png
+    - assets/images/emoji_low.png
+    - assets/images/sun.png
+    - assets/images/moon.png
+    - assets/images/water.png
+    - assets/images/medicine.png
+    - assets/images/activity.png
+    - assets/images/sleep.png
+    - assets/images/food.png
 
   fonts:
      - family: SCDream

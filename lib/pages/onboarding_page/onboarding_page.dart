@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:majoong_notice/pages/auth/widgets/login_page.dart';
+import 'package:majoong_notice/pages/home_page/widgets/home_page.dart';
 
 import 'view_model/onboarding_view_model.dart';
 import 'widgets/onboarding_page_view.dart';
@@ -81,6 +83,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         child: TextButton(
                           onPressed: () {
                             //Get.to(() => AddPageMedicine()),
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(),));
                           },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.zero,

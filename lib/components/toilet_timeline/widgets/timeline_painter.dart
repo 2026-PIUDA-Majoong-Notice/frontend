@@ -1,0 +1,157 @@
+// widgets/timeline_painter.dart
+import 'package:flutter/material.dart';
+import 'dart:math';
+import 'package:majoong_notice/components/toilet_timeline/model/timeline_data.dart';
+import 'package:majoong_notice/components/toilet_timeline/view_model/timeline_view_model.dart';
+
+class TimelinePainter extends CustomPainter {
+  final TimelineViewModel viewModel;
+
+  TimelinePainter({required this.viewModel});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final center = Offset(size.width / 2, size.height / 2);
+    final radius = min(size.width, size.height) / 2;
+    final labelRadius = radius * 1.15; // 숫자가 들어가는 원 반지름
+    final innerRadius = radius * 0.4; // 가운데 빈 원 반지름
+
+    final slots = viewModel.data.slots;
+
+    final sweepAngle = 2 * pi / 48; // 한 구간 각도 (7.5도)
+
+    for (int i = 0; i < slots.length; i++) {
+      // 12시가 맨 위(-90도)부터 시작, 시계방향
+      final startAngle = -pi / 2 + ((i - 24) * sweepAngle);
+
+      final paint = Paint()
+        ..color = viewModel.colorForProbability(slots[i].probability)
+        ..style = PaintingStyle.fill; // 각 지점마다 색 지정하고, close로 그린 도형을 닫았을때, 안쪽을 자동으로 해당 색으로 채워줌
+
+      // 부채꼴 그리기 (도넛 모양)
+      final path = Path() //.. 붙이는 이유 : 위에 패스 객체 메서드를 연속으로 부르는데, 코드를 더 간결하게 하기위해서
+        ..moveTo( //그림을 그릴 펜의 좌표 설정 (시작점 지정)
+          center.dx + innerRadius * cos(startAngle),
+          center.dy + innerRadius * sin(startAngle),
+        )
+        ..lineTo( // 현재 위치에서 해당 좌표까지 직선 그리기
+          center.dx + radius * cos(startAngle),
+          center.dy + radius * sin(startAngle),
+        )
+        ..arcTo( // 호 그리기
+          Rect.fromCircle(center: center, radius: radius),
+          startAngle,
+          sweepAngle,
+          false,
+        )
+        ..lineTo( // 안쪽으로 직선
+          center.dx + innerRadius * cos(startAngle + sweepAngle),
+          center.dy + innerRadius * sin(startAngle + sweepAngle),
+        )
+        ..arcTo( // 안쪽 호 그리기
+          Rect.fromCircle(center: center, radius: innerRadius),
+          startAngle + sweepAngle,
+          -sweepAngle,
+          false,
+        )
+        ..close(); // 닫기
+
+      canvas.drawPath(path, paint);
+    }
+
+    // 시간 텍스트 넣기
+
+    for (int hour = 0; hour < 24; hour++) {
+      // 12시가 맨 위, 시계방향
+      // 한 시간 = 15도, 12시 기준이니까 (hour - 12) 칸 이동
+      final angle = -pi / 2 + (hour - 12) * (2 * pi / 24);
+
+      final x = center.dx + labelRadius * cos(angle); // 해당하는 시간이 위치한 각도일때, 좌표 구하기
+      final y = center.dy + labelRadius * sin(angle);
+
+      final textPainter = TextPainter( // 숫자 쓰기
+        text: TextSpan(
+          text: hour.toString().padLeft(2, '0'), // 00, 01 ... 23
+          style: const TextStyle(
+            fontSize: 13,
+            color: Colors.black54,
+            fontFamily: 'SCDream',
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        textDirection: TextDirection.ltr,
+      )..layout(); // 글자 크기 계산
+
+      canvas.save();
+      // 글자 위치로 이동
+      canvas.translate(x, y);
+      // 중심 바라보게 회전
+      canvas.rotate(angle + pi / 2);
+      // 텍스트 중심 맞추기
+      textPainter.paint(
+        canvas,
+        Offset(-textPainter.width / 2, -textPainter.height / 2),
+      );
+      canvas.restore();
+    }
+
+    final tickPaint = Paint() // 30분,1시간 마다 막대 그리기
+      ..color = Colors.black26
+      ..strokeWidth = 1;
+
+    for (int i = 0; i < 48; i++) {
+      // 30분 단위니까 48개, 12시가 맨 위
+      final angle = -pi / 2 + i * (2 * pi / 48);
+
+      // 정시는 길게, 30분은 짧게
+      final isHour = i % 2 == 0;
+      final tickStart = radius * 1.02;
+      final tickEnd = isHour ? radius * 1.08 : radius * 1.05;
+
+      final p1 = Offset(
+        center.dx + tickStart * cos(angle),
+        center.dy + tickStart * sin(angle),
+      );
+      final p2 = Offset(
+        center.dx + tickEnd * cos(angle),
+        center.dy + tickEnd * sin(angle),
+      );
+
+      canvas.drawLine(p1, p2, tickPaint);
+    }
+
+    //현재 시간에 화살표 그리기
+
+    final now = DateTime.now();
+    final currentTime = now.hour + now.minute / 60;
+
+    // 12시가 맨 위 기준 각도
+    final arrowAngle = -pi / 2 + (currentTime - 12) * (2 * pi / 24);
+
+    // 화살표 위치 (부채꼴 바깥쪽)
+
+    final arrowRadius = labelRadius * 1.13;
+    final ax = center.dx + arrowRadius * cos(arrowAngle);
+    final ay = center.dy + arrowRadius * sin(arrowAngle);
+
+    final arrowPaint = Paint()
+      ..color = Colors.black87
+      ..style = PaintingStyle.fill;
+
+    canvas.save();
+    canvas.translate(ax, ay);
+    canvas.rotate(arrowAngle + pi / 2); // 중심 방향 가리키게
+
+    // 작은 삼각형 (안쪽 향함)
+    final path = Path()
+      ..moveTo(0, 6) // 뾰족한 끝이 중심 방향(아래)
+      ..lineTo(-7, -4) // 바깥쪽 왼쪽
+      ..lineTo(7, -4) // 바깥쪽 오른쪽
+      ..close();
+    canvas.drawPath(path, arrowPaint);
+    canvas.restore();
+  }
+
+  @override
+  bool shouldRepaint(covariant TimelinePainter oldDelegate) => true;
+}

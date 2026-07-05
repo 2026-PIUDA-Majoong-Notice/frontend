@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:majoong_notice/pages/home_page/widgets/home_page.dart';
 
 import 'components/bottom_navi_bar.dart';
 import 'pages/onboarding_page/onboarding_page.dart';
@@ -41,6 +42,7 @@ class _NoticeState extends State<Notice> {
       body: Center(
         child: Text('메인화면'),
       ),
+      bottomNavigationBar: BottomNaviBar(currentIndex: 0,),
     );
   }
 }

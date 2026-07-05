@@ -46,7 +46,6 @@ class _AddPageBasicState extends State<AddPageBasic> {
           imagePath: widget.profileImage!.path,
         );
       }
-
       Get.to(() => AddPageHealth(
         profileImageId: profileImageId,
         imageId: 0,
@@ -56,6 +55,9 @@ class _AddPageBasicState extends State<AddPageBasic> {
         wakeTime: '',
         sleepTime: '',
       ));
+      // Get.to(() => AddPageHealth(        //요거 물어보기
+      //   profileImageId: profileImageId,
+      // ));
     } catch (e) {
       Get.snackbar(
           '이미지 업로드 실패',

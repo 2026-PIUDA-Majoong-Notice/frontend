@@ -65,6 +65,10 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.3.5+2"
+      sha256: "92c9c43c383bfa1c32079d3bc492d55d6d4318044b7b47edaff8971cbb555c51"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.5+4"
   crypto:
     dependency: transitive
     description:
@@ -89,6 +93,10 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.9.2"
+      sha256: ea2bad3c89a27635ce2d85cce4d6b199da49a5a48ec77b03e45b65a3b90922b0
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.10.0"
   dio_web_adapter:
     dependency: transitive
     description:
@@ -97,6 +105,10 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.2"
+      sha256: dd58dc3861eb36edb13b217efc006a1c21e5bbc341de8c229b85634fa5e362e4
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.2.0"
   fake_async:
     dependency: transitive
     description:
@@ -272,6 +284,10 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.2"
+      sha256: d8402284df184bc05f4a2210c6c23983b0720f4cd87cbd05c5390a78af602667
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.3"
   image_picker_android:
     dependency: transitive
     description:
