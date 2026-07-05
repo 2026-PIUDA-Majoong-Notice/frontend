@@ -27,7 +27,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
-        backgroundColor: Color(0xFFF6FAF8),
+        backgroundColor: const Color(0xFFF6FAF8),
         body: SafeArea(
           child: Center(
             child: Form(
@@ -45,16 +45,16 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                           fontSize: 11,
                           fontFamily: 'SCDream',
                           fontWeight: FontWeight.w300,
-                          color: Color(0xFF424242).withOpacity(0.8),
+                          color: const Color(0xFF424242).withOpacity(0.8),
                         ),
                       ),
                     ),
                     TextFormField(
                       controller: passwordController,
-                      cursorColor: Color(0xFF424242).withOpacity(0.8),
+                      cursorColor: const Color(0xFF424242).withOpacity(0.8),
                       validator: viewModel.validatePassword,
                       autovalidateMode: AutovalidateMode.onUserInteraction,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         isDense: true,
                         helperText: ' ',
                         contentPadding: EdgeInsets.symmetric(vertical: 8),
@@ -66,7 +66,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     Align(
                       alignment: Alignment.topLeft,
                       child: Text(
@@ -75,13 +75,13 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                           fontSize: 11,
                           fontFamily: 'SCDream',
                           fontWeight: FontWeight.w300,
-                          color: Color(0xFF424242).withOpacity(0.8),
+                          color: const Color(0xFF424242).withOpacity(0.8),
                         ),
                       ),
                     ),
                     TextFormField(
                       controller: passwordConfirmController,
-                      cursorColor: Color(0xFF424242).withOpacity(0.8),
+                      cursorColor: const Color(0xFF424242).withOpacity(0.8),
                       validator: (value) => viewModel.validatePasswordConfirm(
                         value,
                         passwordController.text,
@@ -99,22 +99,22 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 60),
+                    const SizedBox(height: 60),
                     ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           Navigator.pushAndRemoveUntil(
                             context,
-                            MaterialPageRoute(builder: (context) => LoginPage()),
+                            MaterialPageRoute(builder: (context) => const LoginPage()),
                             (route) => false,
                           );
                         }
                       },
                       style: ElevatedButton.styleFrom(
                         elevation: 0,
-                        backgroundColor: Color(0xFF6FAF9B),
+                        backgroundColor: const Color(0xFF6FAF9B),
                         foregroundColor: Colors.white,
-                        minimumSize: Size(161, 40),
+                        minimumSize: const Size(161, 40),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50),
                         ),

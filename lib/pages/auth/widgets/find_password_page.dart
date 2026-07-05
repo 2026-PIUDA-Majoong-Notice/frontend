@@ -25,7 +25,7 @@ class _FindPasswordPageState extends State<FindPasswordPage> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
-        backgroundColor: Color(0xFFF6FAF8),
+        backgroundColor: const Color(0xFFF6FAF8),
         body: SafeArea(
           child: Center(
             child: Form(

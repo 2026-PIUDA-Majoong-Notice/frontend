@@ -25,7 +25,7 @@ class _StatusCardState extends State<StatusCard> {
               width: 0.5,
             ),
             borderRadius: BorderRadius.circular(20),
-            color: Color(0xFFF6FAF8),
+            color: const Color(0xFFF6FAF8),
           ),
           child:  const Padding(
             padding: EdgeInsets.all(16.0),

@@ -32,7 +32,7 @@ class _ProfileCardState extends State<ProfileCard> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             border: Border.all(
-              color: Color(0xFF26332F).withOpacity(0.3),
+              color: const Color(0xFF26332F).withOpacity(0.3),
               width: 0.5,
             ),
           ),
@@ -41,7 +41,7 @@ class _ProfileCardState extends State<ProfileCard> {
             borderRadius: BorderRadius.circular(20),
             child: Container(
               //이미지 삽입
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: AssetImage('assets/images/profile_bg.png'),
@@ -63,10 +63,10 @@ class _ProfileCardState extends State<ProfileCard> {
                           style: TextStyle(
                             fontSize: 9,
                             fontFamily: "SCDream",
-                            color: Color(0xFF26332F).withOpacity(0.5),
+                            color: const Color(0xFF26332F).withOpacity(0.5),
                           ),
                         ),
-                        SizedBox(width: 8),
+                        const SizedBox(width: 8),
                         Text(
                           "${viewModel.data.toiletProbability.toString()}%",
                           style: TextStyle(
@@ -74,13 +74,13 @@ class _ProfileCardState extends State<ProfileCard> {
                             fontFamily: "SCDream",
                             fontWeight: FontWeight.w700,
                             color: viewModel.probablityLevel() == 0
-                                ? Color(0xFF4A80E5)
+                                ? const Color(0xFF4A80E5)
                                 : viewModel.probablityLevel() == 1
-                                ? Color(0xFFE59F4A)
-                                : Color(0xFFD96B6B),
+                                ? const Color(0xFFE59F4A)
+                                : const Color(0xFFD96B6B),
                           ),
                         ),
-                        SizedBox(width: 3),
+                        const SizedBox(width: 3),
                         Padding(
                           padding: const EdgeInsets.only(bottom: 5),
                           child: Image(
@@ -96,7 +96,7 @@ class _ProfileCardState extends State<ProfileCard> {
                     // 프로필 이미지
                     top: 30,
                     left: 20,
-                    child: CircleAvatar(
+                    child: const CircleAvatar(
                       radius: 35,
                       backgroundColor: Color(0xFFF6FAF8),
                       backgroundImage: AssetImage('assets/images/icon_user.png'),
@@ -114,20 +114,20 @@ class _ProfileCardState extends State<ProfileCard> {
                           children: [
                             Text(
                               viewModel.data.name,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 20,
                                 fontFamily: 'SCDream',
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
-                            SizedBox(width: 3),
+                            const SizedBox(width: 3),
 
                             Column(
                               children: [
-                                SizedBox(height: 9),
+                                const SizedBox(height: 9),
                                 Text(
                                   '어르신',
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontFamily: 'SCDream',
                                     fontWeight: FontWeight.w400,
                                     fontSize: 12,
@@ -137,7 +137,7 @@ class _ProfileCardState extends State<ProfileCard> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 13),
+                        const SizedBox(height: 13),
 
                         Padding(
                           padding: const EdgeInsets.only(left: 23),
@@ -151,11 +151,11 @@ class _ProfileCardState extends State<ProfileCard> {
                                   width: 70,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20),
-                                    color: Color(0xFFF6FAF8),
+                                    color: const Color(0xFFF6FAF8),
                                   ),
                                   child: Text(
                                     element,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontFamily: 'SCDream',
                                       fontWeight: FontWeight.w400,
                                       fontSize: 11,
@@ -166,7 +166,7 @@ class _ProfileCardState extends State<ProfileCard> {
                             ],
                           ),
                         ),
-                        SizedBox(height: 9),
+                        const SizedBox(height: 9),
 
                         Padding(
                           padding: const EdgeInsets.only(left: 93),
@@ -176,7 +176,7 @@ class _ProfileCardState extends State<ProfileCard> {
                               fontFamily: 'SCDream',
                               fontSize: 13,
                               fontWeight: FontWeight.w400,
-                              color: Color(0xFF26332F).withOpacity(0.5),
+                              color: const Color(0xFF26332F).withOpacity(0.5),
                             ),
                           ),
                         ),
@@ -189,7 +189,7 @@ class _ProfileCardState extends State<ProfileCard> {
                     top: 50,
                     child: Text(
                       probabilityComments[viewModel.probablityLevel()],
-                      style: TextStyle(fontSize: 17, fontFamily: 'SCDream', fontWeight: FontWeight.w700),
+                      style: const TextStyle(fontSize: 17, fontFamily: 'SCDream', fontWeight: FontWeight.w700),
                     ),
                   ),
                 ],

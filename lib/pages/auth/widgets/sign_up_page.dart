@@ -37,7 +37,7 @@ class _SignUpPage extends State<SignUpPage> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
-        backgroundColor: Color(0xFFF6FAF8),
+        backgroundColor: const Color(0xFFF6FAF8),
         body: SingleChildScrollView(
           child: SafeArea(
             child: Center(
@@ -48,71 +48,83 @@ class _SignUpPage extends State<SignUpPage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const SizedBox(height: 115,),
-                    Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      '성함',
-                      style: TextStyle(
-                        fontSize: 11,
-                        fontFamily: 'SCDream',
-                        fontWeight: FontWeight.w300,
-                        color: const Color(0xFF424242).withOpacity(0.8),
+                      const SizedBox(height: 115),
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: Text(
+                          '성함',
+                          style: TextStyle(
+                            fontSize: 11,
+                            fontFamily: 'SCDream',
+                            fontWeight: FontWeight.w300,
+                            color: const Color(0xFF424242).withOpacity(0.8),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  TextFormField(
-                    controller: nameController,
-                    cursorColor: const Color(0xFF424242).withOpacity(0.8),
-                    validator: viewModel.validateName,
-                    decoration: const InputDecoration(
-                      isDense: true,
-                      contentPadding: EdgeInsets.symmetric(vertical: 8),
-                      helperText: ' ',
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(width: 1),
+                      TextFormField(
+                        controller: nameController,
+                        cursorColor: const Color(0xFF424242).withOpacity(0.8),
+                        validator: viewModel.validateName,
+                        decoration: const InputDecoration(
+                          isDense: true,
+                          contentPadding: EdgeInsets.symmetric(vertical: 8),
+                          helperText: ' ',
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(width: 1),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(width: 1),
+                          ),
+                        ),
                       ),
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(width: 1),
+                      const SizedBox(height: 20),
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: Text(
+                          '역할',
+                          style: TextStyle(
+                            fontSize: 11,
+                            fontFamily: 'SCDream',
+                            fontWeight: FontWeight.w300,
+                            color: const Color(0xFF424242).withOpacity(0.8),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      '역할',
-                      style: TextStyle(
-                        fontSize: 11,
-                        fontFamily: 'SCDream',
-                        fontWeight: FontWeight.w300,
-                        color: Color(0xFF424242).withOpacity(0.8),
-                      ),
-                    ),
-                  ), SizedBox(height: 10,),Align(
+                      const SizedBox(height: 10),
+                      Align(
                         alignment: Alignment.centerRight,
-                    child: Row(
+                        child: Row(
                           children: ['개인 보호자', '요양원 종사자'].map((role) {
                             final isSelected = selectedRole == role;
                             return Expanded(
                               child: Padding(
-                                padding: EdgeInsets.only(right: 8),
+                                padding: const EdgeInsets.only(right: 8),
                                 child: GestureDetector(
-                                  onTap: () => setState(() => selectedRole = role),
+                                  onTap: () =>
+                                      setState(() => selectedRole = role),
                                   child: Container(
-                                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 16,
+                                      vertical: 8,
+                                    ),
                                     decoration: BoxDecoration(
-                                      color: isSelected ? Color(0xFF6FAF9B) : Colors.white,
+                                      color: isSelected
+                                          ? const Color(0xFF6FAF9B)
+                                          : Colors.white,
                                       borderRadius: BorderRadius.circular(20),
                                       border: Border.all(
-                                        color: isSelected ? Color(0xFF6FAF9B) : Colors.grey,
+                                        color: isSelected
+                                            ? const Color(0xFF6FAF9B)
+                                            : Colors.grey,
                                       ),
                                     ),
                                     child: Center(
                                       child: Text(
                                         role,
                                         style: TextStyle(
-                                          color: isSelected ? Colors.white : Colors.grey,
+                                          color: isSelected
+                                              ? Colors.white
+                                              : Colors.grey,
                                           fontFamily: 'SCDream',
                                           fontSize: 12,
                                         ),
@@ -124,175 +136,181 @@ class _SignUpPage extends State<SignUpPage> {
                             );
                           }).toList(),
                         ),
-                  ), SizedBox(height: 50,),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    '이메일',
-                    style: TextStyle(
-                      fontSize: 11,
-                      fontFamily: 'SCDream',
-                      fontWeight: FontWeight.w300,
-                      color: Color(0xFF424242).withOpacity(0.8),
-                    ),
-                  ),
-                ),
-                TextFormField(
-                  controller: emailController,
-                  cursorColor: Color(0xFF424242).withOpacity(0.8),
-                  validator: viewModel.validateEmail,
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  decoration: const InputDecoration(
-                    helperText: ' ',
-                    isDense: true,
-                    contentPadding: EdgeInsets.symmetric(vertical: 8),
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(width: 1),
-                    ),
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(width: 1),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 20),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    '비밀번호',
-                    style: TextStyle(
-                      fontSize: 11,
-                      fontFamily: 'SCDream',
-                      fontWeight: FontWeight.w300,
-                      color: Color(0xFF424242).withOpacity(0.8),
-                    ),
-                  ),
-                ),
-                TextFormField(
-                  controller: passwordController,
-                  cursorColor: Color(0xFF424242).withOpacity(0.8),
-                  validator: viewModel.validatePassword,
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  decoration: InputDecoration(
-                    helperText: ' ',
-                    isDense: true,
-                    contentPadding: EdgeInsets.symmetric(vertical: 8),
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(width: 1),
-                    ),
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(width: 1),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 20,),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    '비밀번호 확인',
-                    style: TextStyle(
-                      fontSize: 11,
-                      fontFamily: 'SCDream',
-                      fontWeight: FontWeight.w300,
-                      color: Color(0xFF424242).withOpacity(0.8),
-                    ),
-                  ),
-                ),
-                TextFormField(
-                  controller: passwordConfirmController,
-                  cursorColor: Color(0xFF424242).withOpacity(0.8),
-                  validator: (value) =>
-                      viewModel.validatePasswordConfirm(
-                        value,
-                        passwordController.text,
                       ),
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  decoration: InputDecoration(
-                    helperText: ' ',
-                    isDense: true,
-                    contentPadding: EdgeInsets.symmetric(vertical: 8),
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(width: 1),
-                    ),
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(width: 1),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 60),
-                ElevatedButton(
-                  onPressed: () async {
-          
-                    if (selectedRole == null) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('역할을 선택해주세요')),
-                      );
-                      return;
-                    }
-          
-                    if (_formKey.currentState!.validate()) {
-                      showLoading();
-                      try {
-                        final userId = await signUp(
-                          email: emailController.text.trim(),
-                          password: passwordController.text,
-                          passwordConfirm: passwordConfirmController.text,
-                          name: nameController.text,
-                        );
-                        print('성공! userId: $userId');
-                        hideLoading();
-                        Get.off(() => LoginPage());
-                      } catch (e) {
-                        hideLoading();
-                        Get.snackbar('회원가입 실패', e.toString());
-                      }
-
-                    }
-                  },
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    backgroundColor: Color(0xFF6FAF9B),
-                    foregroundColor: Colors.white,
-                    minimumSize: Size(161, 40),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                  ),
-                  child: Text(
-                    '회원가입',
-                    style: TextStyle(
-                      fontFamily: 'SCDream',
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                ),TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => LoginPage()),
-                          );
-                        },
-                        style: TextButton.styleFrom(overlayColor: Colors.transparent,padding: EdgeInsets.only(top: 12),minimumSize: Size.zero,tapTargetSize: MaterialTapTargetSize.shrinkWrap,),
-                        child: const Text(
-                          '돌아가기',
+                      const SizedBox(height: 50),
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: Text(
+                          '이메일',
                           style: TextStyle(
-                              decoration: TextDecoration.underline,
-                              decorationColor: Colors.grey,
-                              decorationThickness: 1,
-                              fontFamily: 'SCDream',
-                              fontSize: 11,
-                              fontWeight: FontWeight.w300,
-                              color: Colors.grey
+                            fontSize: 11,
+                            fontFamily: 'SCDream',
+                            fontWeight: FontWeight.w300,
+                            color: const Color(0xFF424242).withOpacity(0.8),
                           ),
                         ),
                       ),
-                ],
+                      TextFormField(
+                        controller: emailController,
+                        cursorColor: const Color(0xFF424242).withOpacity(0.8),
+                        validator: viewModel.validateEmail,
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        decoration: const InputDecoration(
+                          helperText: ' ',
+                          isDense: true,
+                          contentPadding: EdgeInsets.symmetric(vertical: 8),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(width: 1),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(width: 1),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: Text(
+                          '비밀번호',
+                          style: TextStyle(
+                            fontSize: 11,
+                            fontFamily: 'SCDream',
+                            fontWeight: FontWeight.w300,
+                            color: const Color(0xFF424242).withOpacity(0.8),
+                          ),
+                        ),
+                      ),
+                      TextFormField(
+                        controller: passwordController,
+                        cursorColor: const Color(0xFF424242).withOpacity(0.8),
+                        validator: viewModel.validatePassword,
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        decoration: const InputDecoration(
+                          helperText: ' ',
+                          isDense: true,
+                          contentPadding: EdgeInsets.symmetric(vertical: 8),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(width: 1),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(width: 1),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: Text(
+                          '비밀번호 확인',
+                          style: TextStyle(
+                            fontSize: 11,
+                            fontFamily: 'SCDream',
+                            fontWeight: FontWeight.w300,
+                            color: const Color(0xFF424242).withOpacity(0.8),
+                          ),
+                        ),
+                      ),
+                      TextFormField(
+                        controller: passwordConfirmController,
+                        cursorColor: const Color(0xFF424242).withOpacity(0.8),
+                        validator: (value) => viewModel.validatePasswordConfirm(
+                          value,
+                          passwordController.text,
+                        ),
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        decoration: const InputDecoration(
+                          helperText: ' ',
+                          isDense: true,
+                          contentPadding: EdgeInsets.symmetric(vertical: 8),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(width: 1),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(width: 1),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 60),
+                      ElevatedButton(
+                        onPressed: () async {
+                          if (selectedRole == null) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text('역할을 선택해주세요')),
+                            );
+                            return;
+                          }
+
+                          if (_formKey.currentState!.validate()) {
+                            showLoading();
+                            try {
+                              final userId = await signUp(
+                                email: emailController.text.trim(),
+                                password: passwordController.text,
+                                passwordConfirm: passwordConfirmController.text,
+                                name: nameController.text,
+                              );
+                              // print('성공! userId: $userId');
+                              hideLoading();
+                              Get.off(() => const LoginPage());
+                            } catch (e) {
+                              hideLoading();
+                              Get.snackbar('회원가입 실패', e.toString());
+                            }
+                          }
+                        },
+                        style: ElevatedButton.styleFrom(
+                          elevation: 0,
+                          backgroundColor: const Color(0xFF6FAF9B),
+                          foregroundColor: Colors.white,
+                          minimumSize: const Size(161, 40),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                        ),
+                        child: const Text(
+                          '회원가입',
+                          style: TextStyle(
+                            fontFamily: 'SCDream',
+                            fontWeight: FontWeight.w300,
+                          ),
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const LoginPage(),
+                            ),
+                          );
+                        },
+                        style: TextButton.styleFrom(
+                          overlayColor: Colors.transparent,
+                          padding: const EdgeInsets.only(top: 12),
+                          minimumSize: Size.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        ),
+                        child: const Text(
+                          '돌아가기',
+                          style: TextStyle(
+                            decoration: TextDecoration.underline,
+                            decorationColor: Colors.grey,
+                            decorationThickness: 1,
+                            fontFamily: 'SCDream',
+                            fontSize: 11,
+                            fontWeight: FontWeight.w300,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
           ),
-                ),
-              ),
-        ),)
-    ,
+        ),
+      ),
     );
   }
 }

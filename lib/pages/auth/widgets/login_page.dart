@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
-        backgroundColor: Color(0xFFF6FAF8),
+        backgroundColor: const Color(0xFFF6FAF8),
         body: SafeArea(
           child: Center(
             child: Form(
@@ -51,15 +51,15 @@ class _LoginPageState extends State<LoginPage> {
                           fontSize: 11,
                           fontFamily: 'SCDream',
                           fontWeight: FontWeight.w300,
-                          color: Color(0xFF424242).withOpacity(0.8),
+                          color: const Color(0xFF424242).withOpacity(0.8),
                         ),
                       ),
                     ),
                     TextFormField(
                       controller: emailController,
-                      cursorColor: Color(0xFF424242).withOpacity(0.8),
+                      cursorColor: const Color(0xFF424242).withOpacity(0.8),
                       validator: viewModel.validateEmail,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         isDense: true,
                         contentPadding: EdgeInsets.symmetric(vertical: 8),
                         enabledBorder: UnderlineInputBorder(
@@ -79,15 +79,15 @@ class _LoginPageState extends State<LoginPage> {
                           fontSize: 11,
                           fontFamily: 'SCDream',
                           fontWeight: FontWeight.w300,
-                          color: Color(0xFF424242).withOpacity(0.8),
+                          color: const Color(0xFF424242).withOpacity(0.8),
                         ),
                       ),
                     ),
                     TextFormField(
                       controller: passwordController,
-                      cursorColor: Color(0xFF424242).withOpacity(0.8),
+                      cursorColor: const Color(0xFF424242).withOpacity(0.8),
                       validator: viewModel.validatePassword,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         isDense: true,
                         contentPadding: EdgeInsets.symmetric(vertical: 8),
                         enabledBorder: UnderlineInputBorder(
@@ -135,7 +135,7 @@ class _LoginPageState extends State<LoginPage> {
                           fontWeight: FontWeight.w300,
                         ),
                       ),
-                    ),SizedBox(height: 10,),
+                    ),const SizedBox(height: 10,),
                     ElevatedButton(
                       onPressed: () {
                         Navigator.push(
@@ -144,7 +144,7 @@ class _LoginPageState extends State<LoginPage> {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        side: BorderSide(
+                        side: const BorderSide(
                           color: Color(0xFF6FAF9B),
                           width: 1,
                         ),
