@@ -4,6 +4,10 @@ import 'package:majoong_notice/pages/home_page/widgets/home_page.dart';
 
 import 'components/bottom_navi_bar.dart';
 import 'pages/onboarding_page/onboarding_page.dart';
+import 'pages/add_page/add_page_basic/add_page_basic.dart';
+import 'pages/record_page/record_page_main/record_page_main.dart';
+import 'pages/settings_page/settings_page.dart';
+
 
 void main() {
   runApp(const NoticeApp());
@@ -18,7 +22,7 @@ class NoticeApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0xffF6FAF8),
       ),
-      home: const HomePage(),
+      home: OnboardingPage(),
       debugShowCheckedModeBanner: false,
     );
   }

@@ -6,6 +6,10 @@ import '../pages/record_page/record_page_main/record_page_main.dart';
 import '../pages/settings_page/settings_page.dart';
 
 
+import '../pages/record_page/record_page_main/record_page_main.dart';
+import '../pages/settings_page/settings_page.dart';
+
+
 class BottomNaviBar extends StatelessWidget {
   final int currentIndex;
 
@@ -24,7 +28,7 @@ class BottomNaviBar extends StatelessWidget {
           if (index == currentIndex) return;
 
           if (index == 0) {
-            Get.off(() => const HomePage());/// TODO: 홈 페이지 만들면 연결
+            Get.off(() => const HomePage());
             return;
           }
           if (index == 1) {
