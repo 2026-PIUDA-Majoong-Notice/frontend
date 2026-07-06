@@ -47,11 +47,12 @@
 
 <div align="center">
 
-| 홈 | 배변 타임라인 | 어르신 등록 |
+| 온보딩 | 홈 화면 |
 |:---:|:---:|:---:|
-| <img src="./screenshots/home.png" width="220"/> | <img src="./screenshots/timeline.png" width="220"/> | <img src="./screenshots/register.png" width="220"/> |
+|<img width="220"  alt="온보딩 화면2" src="https://github.com/user-attachments/assets/f38b92a4-582e-4cc6-bbf2-3d07b3b5814f" /> | <img src="./screenshots/timeline.png" width="220"/> | <img src="./screenshots/register.png" width="220"/> |
 
-| 케어 기록 | 알림 설정 | 인증 (로그인/회원가입) |
+| 어르신 등록 | 케어 기록 |
+
 |:---:|:---:|:---:|
 | <img src="./screenshots/care_log.png" width="220"/> | <img src="./screenshots/notification.png" width="220"/> | <img src="./screenshots/auth.png" width="220"/> |
 
