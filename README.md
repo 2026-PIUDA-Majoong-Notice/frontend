@@ -50,8 +50,7 @@
 
 | 온보딩 | 홈 화면 | 기록 화면 |
 |:---:|:---:|:---:|
-|<img width="390" height="844" alt="온보딩 화면2" src="https://github.com/user-attachments/assets/a58f630e-ffce-4376-bfa4-18a6a7c14995" /> | <img width="390" height="844" alt="케어 대시보드(홈) 화면 ver1" src="https://github.com/user-attachments/assets/bb627a07-78dd-41ed-a5a6-4c74b85c733b" />
- | <img width="390" height="844" alt="케어 결과 기록 화면1" src="https://github.com/user-attachments/assets/7bdeaa88-fbb0-4b87-a3db-2ae3cb2e0ec1" />|
+|<img width="390" height="844" alt="온보딩 화면2" src="https://github.com/user-attachments/assets/a58f630e-ffce-4376-bfa4-18a6a7c14995" /> | <img width="390" height="844" alt="케어 대시보드(홈) 화면 ver1" src="https://github.com/user-attachments/assets/bb627a07-78dd-41ed-a5a6-4c74b85c733b" />| <img width="390" height="844" alt="케어 결과 기록 화면1" src="https://github.com/user-attachments/assets/7bdeaa88-fbb0-4b87-a3db-2ae3cb2e0ec1" />|
 
 </div>
 
