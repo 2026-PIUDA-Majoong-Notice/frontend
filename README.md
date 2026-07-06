@@ -49,7 +49,7 @@
 
 | 온보딩 | 홈 화면 |
 |:---:|:---:|
-|<img width="390" height="844" alt="온보딩 화면2" src="https://github.com/user-attachments/assets/a58f630e-ffce-4376-bfa4-18a6a7c14995" /> | <img width="390" height="844" alt="케어 대시보드(홈) 화면 ver1" src="https://github.com/user-attachments/assets/bb627a07-78dd-41ed-a5a6-4c74b85c733b" />|
+|<img width="390" height="844" alt="온보딩 화면2" src="https://github.com/user-attachments/assets/a58f630e-ffce-4376-bfa4-18a6a7c14995" /> <img width="390" height="844" alt="온보딩 화면3" src="https://github.com/user-attachments/assets/cb595001-1d9c-43f7-aa94-6b6e5a3f0e5b" /> <img width="390" height="844" alt="온보딩 화면4" src="https://github.com/user-attachments/assets/5c8bbe70-9f70-4296-806a-121a4ce94a43" /> | <img width="390" height="844" alt="케어 대시보드(홈) 화면 ver1" src="https://github.com/user-attachments/assets/bb627a07-78dd-41ed-a5a6-4c74b85c733b" />|
 
 | 어르신 등록 | 기록 화면 |
 |:---:|:---:|
