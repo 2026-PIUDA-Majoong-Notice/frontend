@@ -47,14 +47,9 @@
 
 <div align="center">
 
-| 온보딩 | 홈 화면 |
+| 온보딩 | 홈 화면 | 기록 화면 |
 |:---:|:---:|:---:|
-|<img width="220"  alt="온보딩 화면2" src="https://github.com/user-attachments/assets/f38b92a4-582e-4cc6-bbf2-3d07b3b5814f" /> | <img src="./screenshots/timeline.png" width="220"/> | <img src="./screenshots/register.png" width="220"/> |
-
-| 어르신 등록 | 케어 기록 |
-
-|:---:|:---:|:---:|
-| <img src="./screenshots/care_log.png" width="220"/> | <img src="./screenshots/notification.png" width="220"/> | <img src="./screenshots/auth.png" width="220"/> |
+|<img width="390" height="844" alt="온보딩 화면2" src="https://github.com/user-attachments/assets/a58f630e-ffce-4376-bfa4-18a6a7c14995" /> | ![홈 화면](./screenshots/home.png) | ![기록 화면](./screenshots/record.png) |
 
 </div>
 
