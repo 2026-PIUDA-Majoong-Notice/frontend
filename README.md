@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🏥 마중 알림 (Majoong Notice)
+# Majoong Notice - Frontend
 
 ### 요양시설 어르신 케어 타이밍 알림 서비스
 
