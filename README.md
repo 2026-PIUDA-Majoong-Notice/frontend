@@ -1,5 +1,4 @@
-<img width="390" height="844" alt="케어 결과 기록 화면1" src="https://github.com/user-attachments/assets/a3e18833-973f-4767-bf69-e8e36c1740a7" /><img width="390" height="844" alt="케어 대시보드(홈) 화면 ver1" src="https://github.com/user-attachments/assets/df5d2b6e-92cc-4160-9cf4-208edf33f092" />
-<div align="left">
+
 
 # Majoong Notice - Frontend
 
