@@ -49,15 +49,13 @@
 
 | 온보딩 | 홈 화면 |
 |:---:|:---:|
-| <img width="120" alt="온보딩 화면2" src="https://github.com/user-attachments/assets/a58f630e-ffce-4376-bfa4-18a6a7c14995" /> <img width="120" alt="온보딩 화면3" src="https://github.com/user-attachments/assets/cb595001-1d9c-43f7-aa94-6b6e5a3f0e5b" /> <img width="120" alt="온보딩 화면4" src="https://github.com/user-attachments/assets/5c8bbe70-9f70-4296-806a-121a4ce94a43" /> | <img width="180" alt="케어 대시보드(홈) 화면 ver1" src="https://github.com/user-attachments/assets/bb627a07-78dd-41ed-a5a6-4c74b85c733b" /> |
+| <img width="120" alt="온보딩 화면2" src="https://github.com/user-attachments/assets/a58f630e-ffce-4376-bfa4-18a6a7c14995" /> <img width="120" alt="온보딩 화면3" src="https://github.com/user-attachments/assets/cb595001-1d9c-43f7-aa94-6b6e5a3f0e5b" /> <img width="120" alt="온보딩 화면4" src="https://github.com/user-attachments/assets/5c8bbe70-9f70-4296-806a-121a4ce94a43" /> | <img width="120" alt="케어 대시보드(홈) 화면 ver1" src="https://github.com/user-attachments/assets/bb627a07-78dd-41ed-a5a6-4c74b85c733b" /> |
 
 | 어르신 등록 | 기록 화면 |
 |:---:|:---:|
-| <img width="180" alt="어르신 등록 화면" src="./screenshots/register.png" /> | <img width="180" alt="케어 결과 기록 화면1" src="https://github.com/user-attachments/assets/7bdeaa88-fbb0-4b87-a3db-2ae3cb2e0ec1" /> |
+| <img width="120" alt="노인 등록 화면" src="https://github.com/user-attachments/assets/c8de20b6-90a2-4533-83cf-b434b23aa243" /> <img width="120" alt="노인 등록 화면-1" src="https://github.com/user-attachments/assets/1c366bac-347c-4df8-b52e-bc6bfa59b950" /> <img width="120" alt="노인 등록 화면-2" src="https://github.com/user-attachments/assets/cdac5331-e6ec-4f13-a2b0-11747d9887a4" /> | <img width="120" alt="케어 결과 기록 화면1" src="https://github.com/user-attachments/assets/7bdeaa88-fbb0-4b87-a3db-2ae3cb2e0ec1" /> <img width="120" alt="케어 결과 기록 화면1 (2)" src="https://github.com/user-attachments/assets/056fb953-1df1-4202-84c5-5db772252e02" /> <img width="120" alt="케어 결과 기록 화면2" src="https://github.com/user-attachments/assets/9ef0ec18-27ac-43f3-9e0a-e43122f3fd58" /> <img width="120" alt="케어 결과 기록 화면3" src="https://github.com/user-attachments/assets/b6a5f76a-660d-4fcd-a463-97d5e23a32c7" /> |
 
 </div>
-
-> 📌 스크린샷은 `screenshots/` 폴더에 위 파일명으로 추가해주세요. (홈: `home.png`, 타임라인: `timeline.png`, 등록: `register.png`, 케어 기록: `care_log.png`, 알림 설정: `notification.png`, 인증: `auth.png`)
 
 <br>
 
